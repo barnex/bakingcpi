@@ -1,6 +1,3 @@
-#include "bcm2835.h"
-
-#define PIN 18
 
 void spin(int cycles){
 	while (cycles > 0){
@@ -10,14 +7,11 @@ void spin(int cycles){
 }
 
 int main(void){
-    bcm2835_gpio_fsel(PIN, BCM2835_GPIO_FSEL_OUTP);
-
-    while (1)
-    {
-        bcm2835_gpio_write(PIN, HIGH);
+	SetGpioFunction(16, 1);
+	while(1){
+		SetGpio(16, 0);
 		spin(0x3F0000);
-        bcm2835_gpio_write(PIN, LOW);
+		SetGpio(16, 1);
 		spin(0x3F0000);
-    }
-    return 0;
+	}
 }
