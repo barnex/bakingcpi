@@ -19,18 +19,6 @@
 */
 
 /* NEW
-* GetGpioAddress returns the base address of the GPIO region as a physical address
-* in register r0.
-* C++ Signature: void* GetGpioAddress()
-*/
-.globl GetGpioAddress
-GetGpioAddress: 
-	gpioAddr .req r0
-	ldr gpioAddr,=0x20200000
-	mov pc,lr
-	.unreq gpioAddr
-
-/* NEW
 * SetGpioFunction sets the function of the GPIO register addressed by r0 to the
 * low  3 bits of r1.
 * C++ Signature: void SetGpioFunction(u32 gpioRegister, u32 function)
