@@ -18,21 +18,6 @@ void blink(int n){
 	}
 }
 
-#define P 16
-#define O (16 * P)
-
-//void rect(int x, int y, int w, int h){
-//	uint32_t pointer = (uint32_t)FrameBufferInfo.pointer;
-//	int W = 1024;
-//	int H = 768;
-//	
-//	for(int i=y*P; i < (y+h)*P; i++){
-//		for(int j=x*P; j < (x+w)*P; j++){
-//			*((uint32_t*)( (pointer + i*W + j)*4 )) = 0;
-//		}
-//	}
-//}
-//
 
 int main(void){
 	// sign of life:
@@ -44,7 +29,7 @@ int main(void){
 	InitialiseFrameBuffer(w, h, 16);
 	uint32_t pitch = FrameBufferInfo.pitch;
 	
-	uint8_t* pointer = (uint8_t*)FrameBufferInfo.pointer;
+	volatile uint8_t* pointer = (volatile uint8_t*)FrameBufferInfo.pointer;
 	if (pointer == 0){
 		blink(1000);
 	}
@@ -58,9 +43,9 @@ int main(void){
 
 	
 	int i = 0;
-	int j = 0;
+	int j = w-1;
 			pointer[(i*w+j)*2 + 0] = 0;
-			//pointer[(i*w+j)*2 + 1] = 0;
+			pointer[(i*w+j)*2 + 1] = 0;
 
 	for (;;){}
 }
