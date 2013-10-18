@@ -1,0 +1,5 @@
+*.swp
+kernel.img
+kernel.list
+kernel.o
+output.elf
