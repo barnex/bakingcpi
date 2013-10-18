@@ -1,4 +1,6 @@
 
+#include "gpio.h"
+
 void spin(int cycles){
 	while (cycles > 0){
 		cycles--;
@@ -12,7 +14,7 @@ int main(void){
 		SetGpio(16, 0);
 		spin(0x300000);
 		SetGpio(16, 1);
-		spin(0x300000);
+		spin(0x100000);
 	}
 	return 0;
 }
