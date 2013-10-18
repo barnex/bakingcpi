@@ -22,6 +22,7 @@ typedef struct  {
 	uint32_t size;
 }FrameBuferDescription;
 
+
 extern FrameBuferDescription FrameBufferInfo;
 
 void* InitialiseFrameBuffer(uint32_t width, uint32_t height, uint32_t bitDepth);

@@ -28,8 +28,8 @@
 FrameBufferInfo:
 	.int 1024	/* #0 Width */
 	.int 768	/* #4 Height */
-	.int 1024	/* #8 vWidth */
-	.int 768	/* #12 vHeight */
+	.int 0	    /* #8 vWidth */
+	.int 0  	/* #12 vHeight */
 	.int 0		/* #16 GPU - Pitch */
 	.int 24		/* #20 Bit Dpeth */
 	.int 0		/* #24 X */
