@@ -19,13 +19,14 @@ void blink(int n){
 }
 
 void Clear(uint16_t color){
+	uint32_t color2 = color << 16 | color;
 	int pixels = FrameBufferInfo.width * FrameBufferInfo.height / 2;
 	volatile uint32_t* pointer = (volatile uint32_t*)FrameBufferInfo.pointer;
 	for(int i=0; i < pixels; i+=4){
-			pointer[i+0] = color;
-			pointer[i+1] = color;
-			pointer[i+2] = color;
-			pointer[i+3] = color;
+			pointer[i+0] = color2;
+			pointer[i+1] = color2;
+			pointer[i+2] = color2;
+			pointer[i+3] = color2;
 	}
 }
 
