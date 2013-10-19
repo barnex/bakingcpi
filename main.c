@@ -31,8 +31,18 @@ int main(void){
 
 	Clear(0xFFFF);
 
-	Rect r = {10, 20, 30, 50};
-	Fill(r, 0x0000);
+#define A 32
+#define X (1920/2 - 3*A)
+#define Y (1080/2 - 3*A)
+
+	Rect r1 = {0*A+X, 0*A+Y, 3*A+X, 3*A+Y};
+	Fill(r1, 0x0000);
+	Rect r2 = {1*A+X, 1*A+Y, 2*A+X, 2*A+Y};
+	Fill(r2, 0xFFFF);
+	Rect r3 = {0*A+X, 3*A+Y, 1*A+X, 5*A+Y};
+	Fill(r3, 0x0000);
+	Rect r4 = {4*A+X, 0*A+Y, 5*A+X, 5*A+Y};
+	Fill(r4, 0x0000);
 
 	SetGpio(16, 1); // done
 	for (;;){}
