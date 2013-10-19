@@ -24,10 +24,10 @@ int main(void){
 	SetGpioFunction(16, 1);
 	SetGpio(16, 0);
 
-	int w = 1024;
-	int h = 768;
-	InitialiseFrameBuffer(w, h, 16);
+	InitialiseFrameBuffer(1920, 1080, 16);
 	uint32_t pitch = FrameBufferInfo.pitch;
+	int w = FrameBufferInfo.width;
+	int h = FrameBufferInfo.height;
 	
 	volatile uint8_t* pointer = (volatile uint8_t*)FrameBufferInfo.pointer;
 	if (pointer == 0){
@@ -42,12 +42,12 @@ int main(void){
 	}
 
 	
-	for(int i=0; i < h; i++){
-		for(int j=0; j < w; j++){
+	for(int j=0; j < w; j++){
+		for(int i=0; i < h; i++){
 			pointer[(i*w+j)*2 + 0] = 0;
 			pointer[(i*w+j)*2 + 1] = 0;
 
-			for(int k=0; k < 10000; k++){}
+			for(int k=0; k < 5000; k++){}
 		}
 	}
 
