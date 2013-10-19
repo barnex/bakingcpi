@@ -29,12 +29,4 @@ void* InitialiseFrameBuffer(uint32_t width, uint32_t height, uint32_t bitDepth);
 
 void Clear(uint16_t color);
 
-void SetGraphicsAddress(FrameBuferDescription* value);
-
-void SetForeColour(uint16_t colour);
-
-void DrawPixel(uint32_t x, uint32_t y);
-
-void DrawLine(uint32_t x1, uint32_t y1, uint32_t x2, uint32_t y2);
-
 #endif

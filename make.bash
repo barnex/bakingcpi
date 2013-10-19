@@ -16,4 +16,6 @@ echo ./gcc/bin/arm-none-eabi-objcopy output.elf -O binary kernel.img  &&
 ./gcc/bin/arm-none-eabi-objcopy output.elf -O binary kernel.img
 
 echo ./gcc/bin/arm-none-eabi-objdump -d output.elf > kernel.list
-./gcc/bin/arm-none-eabi-objdump -d output.elf > kernel.list
+./gcc/bin/arm-none-eabi-objdump -d output.elf > kernel.list &&
+
+echo OK
