@@ -18,6 +18,16 @@ void blink(int n){
 	}
 }
 
+void Clear(uint16_t color){
+	int pixels = FrameBufferInfo.width * FrameBufferInfo.height / 2;
+	volatile uint32_t* pointer = (volatile uint32_t*)FrameBufferInfo.pointer;
+	for(int i=0; i < pixels; i+=4){
+			pointer[i+0] = color;
+			pointer[i+1] = color;
+			pointer[i+2] = color;
+			pointer[i+3] = color;
+	}
+}
 
 int main(void){
 	// sign of life:
@@ -29,28 +39,22 @@ int main(void){
 	int w = FrameBufferInfo.width;
 	int h = FrameBufferInfo.height;
 	
-	volatile uint8_t* pointer = (volatile uint8_t*)FrameBufferInfo.pointer;
+	volatile uint16_t* pointer = (volatile uint16_t*)FrameBufferInfo.pointer;
 	if (pointer == 0){
-		blink(1000);
+		blink(100000);
 	}
 
-	for(int i=0; i < h; i++){
-		for(int j=0; j < w; j++){
-			pointer[(i*w+j)*2 + 0] = 255;
-			pointer[(i*w+j)*2 + 1] = 255;
-		}
-	}
+	int led = 0;
 
+	for(uint16_t c = 0; c <= 0xFFFF; c++){
+		Clear(c);
+		if (c == 0xFFFF){ c = 0;}
+		led = !led;
+		SetGpio(16, led);
+	}
 	
-	for(int j=0; j < w; j++){
-		for(int i=0; i < h; i++){
-			pointer[(i*w+j)*2 + 0] = 0;
-			pointer[(i*w+j)*2 + 1] = 0;
 
-			for(int k=0; k < 5000; k++){}
-		}
-	}
-
+	SetGpio(16, 1); // done
 	for (;;){}
 }
 
