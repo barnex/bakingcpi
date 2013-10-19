@@ -3,7 +3,7 @@ rm -f kernel.img *.o
 for c in *.c; do
 	o=$(echo $c | sed 's/.c/.o/g')
 	echo ./gcc/bin/arm-none-eabi-gcc -c $c -o $o -I . -O3 -nostdlib -std=c99
-	./gcc/bin/arm-none-eabi-gcc -c $c -o $o -I . -O3 -nostdlib -std=c99 || exit 1
+	./gcc/bin/arm-none-eabi-gcc -c $c -o $o -I . -O3 -nostdlib -std=c99 -Wunused -Werror || exit 1
 done
 
 echo ./gcc/bin/arm-none-eabi-as -I . *.s -o drivers.o
