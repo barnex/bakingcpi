@@ -27,6 +27,7 @@ extern FrameBuferDescription FrameBufferInfo;
 
 void* InitialiseFrameBuffer(uint32_t width, uint32_t height, uint32_t bitDepth);
 
+void Clear(uint16_t color);
 
 void SetGraphicsAddress(FrameBuferDescription* value);
 
