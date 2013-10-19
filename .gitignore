@@ -1,6 +1,6 @@
 *.swp
 kernel.img
 kernel.list
-kernel.o
+*.o
 kernel.map
 output.elf
