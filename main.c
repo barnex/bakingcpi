@@ -42,10 +42,14 @@ int main(void){
 	}
 
 	
-	int i = 0;
-	int j = w-1;
+	for(int i=0; i < h; i++){
+		for(int j=0; j < w; j++){
 			pointer[(i*w+j)*2 + 0] = 0;
 			pointer[(i*w+j)*2 + 1] = 0;
+
+			for(int k=0; k < 10000; k++){}
+		}
+	}
 
 	for (;;){}
 }
