@@ -31,6 +31,9 @@ int main(void){
 
 	Clear(0xFFFF);
 
+	Rect r = {10, 20, 30, 50};
+	Fill(r, 0x0000);
+
 	SetGpio(16, 1); // done
 	for (;;){}
 }

@@ -33,13 +33,12 @@ void* InitialiseFrameBuffer(uint32_t width, uint32_t height, uint32_t bitDepth);
 void Clear(uint16_t color);
 
 typedef struct{
-	int16_t x;
-	int16_t y;
-}Point;
-
-typedef struct{
-	Point min;
-	Point max;
+	int x0;
+	int y0;
+	int x1;
+	int y1;
 }Rect;
+
+void Fill(Rect r, uint16_t color);
 
 #endif
