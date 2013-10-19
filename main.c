@@ -22,11 +22,15 @@ void Clear(uint16_t color){
 	uint32_t color2 = color << 16 | color;
 	int pixels = FrameBufferInfo.width * FrameBufferInfo.height / 2;
 	volatile uint32_t* pointer = (volatile uint32_t*)FrameBufferInfo.pointer;
-	for(int i=0; i < pixels; i+=4){
+	for(int i=0; i < pixels; i+=8){
 			pointer[i+0] = color2;
 			pointer[i+1] = color2;
 			pointer[i+2] = color2;
 			pointer[i+3] = color2;
+			pointer[i+4] = color2;
+			pointer[i+5] = color2;
+			pointer[i+6] = color2;
+			pointer[i+7] = color2;
 	}
 }
 
@@ -47,12 +51,15 @@ int main(void){
 
 	int led = 0;
 
-	for(uint16_t c = 0; c <= 0xFFFF; c++){
-		Clear(c);
-		if (c == 0xFFFF){ c = 0;}
-		led = !led;
-		SetGpio(16, led);
+	for(uint16_t c = 0; c <= 200; c++){
+		Clear(0x0000);
 	}
+
+	for(uint16_t c = 0; c <= 1000; c++){
+		Clear(0xFFFF);
+	}
+
+	Clear(0x0000);
 	
 
 	SetGpio(16, 1); // done
