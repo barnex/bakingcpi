@@ -25,27 +25,11 @@ int main(void){
 	SetGpio(16, 0);
 
 	InitialiseFrameBuffer(1920, 1080, 16);
-	uint32_t pitch = FrameBufferInfo.pitch;
-	int w = FrameBufferInfo.width;
-	int h = FrameBufferInfo.height;
-	
-	volatile uint16_t* pointer = (volatile uint16_t*)FrameBufferInfo.pointer;
-	if (pointer == 0){
+	if (FrameBufferInfo.pointer == 0){
 		blink(100000);
 	}
 
-	int led = 0;
-
-	for(uint16_t c = 0; c <= 200; c++){
-		Clear(0x0000);
-	}
-
-	for(uint16_t c = 0; c <= 1000; c++){
-		Clear(0xFFFF);
-	}
-
-	Clear(0x0000);
-	
+	Clear(0xFFFF);
 
 	SetGpio(16, 1); // done
 	for (;;){}
