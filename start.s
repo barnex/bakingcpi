@@ -15,8 +15,8 @@ __start$:
 # set-up stack
 mov sp,#0x8000
 
-# call main
-bl main
+# call C function void start()
+bl start
 
 
 # halt (infinite loop)

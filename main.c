@@ -19,7 +19,7 @@ void blink(int n){
 }
 
 
-int main(void){
+void start(void){
 	// sign of life:
 	SetGpioFunction(16, 1);
 	SetGpio(16, 0);
@@ -46,7 +46,6 @@ int main(void){
 
 	SetGpio(16, 1); // done
 	for (;;){}
-	return 0;
 }
 
 
