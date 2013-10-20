@@ -46,6 +46,7 @@ int main(void){
 
 	SetGpio(16, 1); // done
 	for (;;){}
+	return 0;
 }
 
 
