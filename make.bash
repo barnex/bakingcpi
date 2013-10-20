@@ -1,4 +1,4 @@
-rm -f kernel.img *.o
+./clean.bash
 
 for c in *.c; do
 	o=$(echo $c | sed 's/.c/.o/g')
