@@ -15,6 +15,7 @@ void Clear(uint16_t color){
 			fb[i+6] = color2;
 			fb[i+7] = color2;
 	}
+	return;
 }
 
 void Fill(Rect r, uint16_t color){
@@ -27,4 +28,5 @@ void Fill(Rect r, uint16_t color){
 			fb[y*w+x] = color;
 		}
 	}
+	return;
 }
