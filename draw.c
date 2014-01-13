@@ -20,7 +20,6 @@ void Clear(uint16_t color){
 
 void Fill(Rect r, uint16_t color){
 	int w = FrameBufferInfo.width;
-	//int h = FrameBufferInfo.height;
 	uint16_t* fb = FrameBufferInfo.pointer;
 
 	for(int y = r.y0; y < r.y1; y++){
