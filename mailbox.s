@@ -10,16 +10,6 @@
 ******************************************************************************/
 
 /*
-* GetMailboxBase returns the base address of the mailbox region as a physical
-* address in register r0.
-* C++ Signature: void* GetMailboxBase()
-*/
-.globl GetMailboxBase
-GetMailboxBase: 
-	ldr r0,=0x2000B880
-	mov pc,lr
-
-/*
 * MailboxRead returns the current value in the mailbox addressed to a channel
 * given in the low 4 bits of r0, as the top 28 bits of r0.
 * C++ Signature: u32 MailboxRead(u8 channel)
